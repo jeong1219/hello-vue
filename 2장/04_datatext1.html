@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <title>여러가지 데이터 형을 표시하는 예제</title>
+</head>
+<body>
+    <h2>여러가지 데이터 형을 표시하는 예제</h2>
+    <div id="app">
+        <p>{{myNumber}}</p>
+        <p>{{myText}}</p>
+        <p>{{myBool}}</p>
+        <hr/>
+
+        <p>{{myPrice / 2}}</p>
+        <p>{{'안녕하세요~! ' + myName}}</p>
+        <p>{{`안녕하세요~! ${myName}`}}</p>
+        <p>{{myName.substr(2, myName.length)}}</p>
+        <hr/>
+
+        <p>{{myFamily}}</p>
+        <p>{{myFamily[0]}}</p>
+        <hr/>
+
+        <p>{{ myTea }}
+        <p>{{ myTea.name }}</p>
+        <hr/>
+
+        <p>{{ myTeaList[1].name }}의 가격은 {{ myTeaList[1].price }}</p>
+        <p>{{ `${myTeaList[1].name}의 가격은 ${myTeaList[1].price}입니다.` }}</p>
+        <hr/>
+
+        <p>{{ $data }}</p>
+    </div>
+
+    <script>
+        const teaList = [
+            {name: '다즐링', price: 600},
+            {name: '얼그레이', price: 500},
+            {name: '실론', price: 400},
+        ]
+        new Vue({
+            el: '#app',
+            data: {
+                myNumber : 901219,
+                myText : '서울특별시',
+                myBool : true,
+                myPrice : 5000,
+                myName : 'SoJeong',
+                myFamily : ['할머니','아빠','엄마','나','동생'],
+                myTea : {name: '다즐링', price: 600},
+                myTeaList : teaList
+            }
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Vue.js sample</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' href='countup.css'>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    <h2>클릭하면 카운터가 올라가기도 하고 내려가기도 합니다.</h2>
+    <div id="app">
+        <p>{{count}}회</p>
+        <button v-on:click="countUp">카운터 UP</button>
+        <button v-on:click="countDown">카운터 DOWN</button>
+    </div>
+
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                count: 0
+            },
+            methods: {
+                countUp: function(){
+                    this.count++;
+                },
+                countDown: function(){
+                    this.count--;
+                }
+            }
+        })
+    </script>
+
+</body>
+</html>
