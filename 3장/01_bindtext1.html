@@ -8,6 +8,23 @@
     <title></title>
 </head>
 <body>
-    
+    <div id="app">
+        <a v-bind:href="naver" target="_blank">naver</a>
+        <a :href="daum" target="_blank">daum</a>
+        <hr/>
+
+        <img src="https://pds.joins.com/news/component/htmlphoto_mmdata/201910/26/ce877ed2-0800-457f-b9a6-a86044718d40.jpg"/>
+        <img v-bind:src="peangsu">펭-하!</img>
+    </div>
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                naver: 'https://www.naver.com',
+                daum: 'ttps://www.daum.net',
+                peangsu: 'https://pds.joins.com/news/component/htmlphoto_mmdata/201910/26/ce877ed2-0800-457f-b9a6-a86044718d40.jpg'
+            }
+        })
+    </script>
 </body>
 </html>
