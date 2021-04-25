@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <title>입력 폼을 데이터와 연결하기</title>
+</head>
+<body>
+    <div id="app">
+        <input type="text" v-model="myName" placeholder="이름"/>
+        <p>나의 이름은 {{ myName }}입니다.</p>
+
+        <textarea type="text" v-model="myText"></textarea>
+        <p>문장은 {{ myText }}</p>
+        <p>총 글자수: {{ myText.length }}</p>
+
+        <label>
+            <input type="checkbox" v-model="myCheck"/>
+            체크박스의 상태는 {{ myCheck }}입니다.
+        </label>
+        <br/>
+
+        <label>
+            <input type="checkbox" value="red" v-model="myCkecksArr"/>
+            빨강
+        </label>
+        <label>
+            <input type="checkbox" value="green" v-model="myCkecksArr"/>
+            녹색
+        </label>
+        <label>
+            <input type="checkbox" value="blue" v-model="myCkecksArr"/>
+            파랑
+        </label>
+        내가 선택한 색은 {{ myCkecksArr }}입니다.
+        <br/>
+
+        <label>
+            <input type="checkbox" v-model="myAgree"/>
+            동의합니다.
+        </label>
+        <button v-bind:disabled="!myAgree">송신</button>
+        <br/>
+
+        <label>
+            <input type="radio" value="red" v-model="mySelect"/>
+            빨강
+        </label>
+        <label>
+            <input type="radio" value="green" v-model="mySelect"/>
+            초록
+        </label>
+        <label>
+            <input type="radio" value="blue" v-model="mySelect"/>
+            파랑
+        </label>
+        <p>{{ mySelect }}이 선택됨.</p>
+        <br/>
+
+        <label>
+            <input type="radio" value="https://dimg.donga.com/i/600/0/90/egc/CDB/WEEKLY/Article/20/11/05/16/201105160500016_1.jpg" v-model="mySelectImg"/>
+            뽀로로
+        </label>
+        <label>
+            <input type="radio" value="http://img.segye.com/content/image/2019/11/14/20191114515059.jpg" v-model="mySelectImg"/>
+            펭수
+        </label>
+        <p>내가 좋아하는 캐릭터</p>
+        <img :src="mySelectImg" alt="캐릭터" v-if="mySelectImg" />
+        <br/>
+
+        <select v-model="myfavoriteColor">
+            <option disabled value="">선택</option>
+            <option>red</option>
+            <option>green</option>
+            <option>blue</option>
+            <option>orange</option>
+            <option>brown</option>
+        </select>
+        <p :style="{color: myfavoriteColor}">내가 젤루 좋아하는 색은 {{ myfavoriteColor }}입니다.</p>
+        <br/>
+
+        <select v-model="myfavoriteColors" multiple>
+            <option disabled value="">선택</option>
+            <option>red</option>
+            <option>green</option>
+            <option>blue</option>
+            <option>orange</option>
+            <option>brown</option>
+        </select>
+        <p>내가 선택한 색은 {{ myfavoriteColors }}입니다.</p>
+        <hr/><br/><br/>
+
+
+        <h4>수식어</h4>
+        <label>
+            <input type="text" v-model.lazy="myLazyText" />
+        </label>
+        <p>{{ myLazyText }}</p>
+        
+        <label>
+            <input type="number" v-model="myNumber0" />
+        </label>
+        <p>{{ myNumber0 }} + 100 = {{ myNumber0 + 100 }}</p>
+        
+        <label>
+            <input type="number" v-model.number="myNumber" />
+        </label>
+        <p>{{ myNumber }} + 100 = {{ myNumber + 100 }}</p>
+        
+        <label>
+            <input type="text" v-model="myTrimText0" />
+        </label>
+        <p>{{ myTrimText0 }}</p>
+
+        <label>
+            <input type="text" v-model.trim="myTrimText" />
+        </label>
+        <p>{{ myTrimText }}</p>
+    </div>
+
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                myName: '',
+                myText: '',
+                myCheck: false,
+                myCkecksArr: [],
+                myAgree: false,
+                mySelect: 'red',
+                mySelectImg: '',
+                myfavoriteColor: '',
+                myfavoriteColors: [],
+                myLazyText: '',
+                myNumber0: '',
+                myNumber: '',
+                myTrimText0: '',
+                myTrimText: ''
+            }
+        })
+    </script>
+
+    <style>
+        
+    </style>
+</body>
+</html>

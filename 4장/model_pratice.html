@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <title>v-model 실습해보자</title>
+</head>
+<body>
+    <div id="app">
+        <h3>입력폼 활용</h3>
+        <div>
+            <label>
+                이름 : 
+                <input type="text" v-model.lazy="myName" />
+            </label>
+        </div>
+        
+        <div>
+            <label>
+                좋아하는 색은 : 
+                <label>
+                    <input type="radio" value="red" v-model="myColor" />
+                    빨강
+                </label>
+                <label>
+                    <input type="radio" value="green" v-model="myColor" />
+                    녹색
+                </label>
+                <label>
+                    <input type="radio" value="blue" v-model="myColor" />
+                    파란색
+                </label>
+                <label>
+                    <input type="radio" value="yello" v-model="myColor" />
+                    노란색
+                </label>
+                <label>
+                    <input type="radio" value="grey" v-model="myColor" />
+                    회색
+                </label>
+            </label>
+        </div>
+        
+
+        <h4>내 이름은 {{myName}}이고, 좋아하는 색은 {{myColor}}입니다.</h4>
+    
+    </div>
+
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                myName: '',
+                myColor: 'red',
+            }
+        })
+    </script>
+
+    <style>
+        
+    </style>
+</body>
+</html>
