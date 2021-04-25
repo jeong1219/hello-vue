@@ -16,6 +16,28 @@
         <img src="https://pds.joins.com/news/component/htmlphoto_mmdata/201910/26/ce877ed2-0800-457f-b9a6-a86044718d40.jpg"/>
         <img v-bind:src="peangsu">펭-하!</img>
     </div>
+    <hr/>
+
+    <div id="app2">
+        <p align="center">align 지정 예제</p>
+        <p v-bind:align="myAlign1">bind오른쪽</p>
+        <p :align="myAlign2">가운데</p>
+
+        <p style="color:red">인라인 스타일 지정1</p>
+        <p v-bind:style="{ color: myColor1 }">인라인 스타일 지정2</p>
+        <p :style="{ fontSize: myFont1 }">인라인 스타일 지정3</p>
+        <p v-bind:style="{ backgroundColor: backgroundColor1 }">인라인 스타일 지정4</p>
+
+        <p class="strike-through">직접 클래스 지정1</p>
+        <p v-bind:class="myClass">직접 클래스 지정2</p>
+        <p :class="[myClass, darkClass]">직접 클래스 지정3</p>
+        <p :class="{'strike-through': isOn}">직접 클래스 지정4</p>
+    </div>
+
+
+
+
+
     <script>
         new Vue({
             el: '#app',
@@ -25,6 +47,28 @@
                 peangsu: 'https://pds.joins.com/news/component/htmlphoto_mmdata/201910/26/ce877ed2-0800-457f-b9a6-a86044718d40.jpg'
             }
         })
+        new Vue({
+            el: '#app2',
+            data: {
+                myAlign1: 'right',
+                myAlign2: 'center',
+                myColor1: '#ff3333',
+                myFont1: '200%',
+                backgroundColor1: 'aqua',
+                myClass: 'strike-through',
+                darkClass : 'dark',
+                isOn: true
+            }
+        })
     </script>
+    <style>
+        .strike-through {
+            text-decoration: line-through;
+            color: lightgray;
+        }
+        .dark {
+            background-color: gray;
+        }
+    </style>
 </body>
 </html>
