@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Vue.js sample</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <h3>배열 데이터를 리스트로 표시하는 예제</h3>
+        <ul v-for="item in myArray">
+            <li>{{ item }}</li>
+        </ul>
+        <hr/>
+
+        <h3>오브젝트 배열 데이터를 리스트로 표시하는 예제</h3>
+        <ul v-for="item in objArray">
+            <li>{{ item.name }} {{ item.price }}원</li>
+        </ul>
+        <hr/>
+
+        <h3>구구단 5단을 표시하는 예제</h3>
+        <ul v-for="n in 10">
+            <li>5 X {{ n }} = {{ 5 * n }}</li>
+        </ul>
+        <hr/>
+
+        <h3>번호가 붙어있는 리스트로 표시하는 예제</h3>
+        <ul v-for="(item, index) in myArray">
+            <li>{{ index }}. {{ item }}</li>
+        </ul>
+        <hr/>
+
+        <h3>배열 데이터를 테이블로 표시하는 예제</h3>
+        <table>
+            <caption>관심받고있는 언어 랭킹</caption>
+            <thead>
+                <tr>
+                    <th v-for="head in table.header">{{ head }}</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr v-for="row in table.ranking">
+                    <td v-for="item in row">{{ item }}</td>
+                </tr>
+            </tbody>
+        </table>
+        <hr/>
+
+        <h3>배열 데이터를 테이블로 표시하는 예제2</h3>
+        <table>
+            <caption>관심받고있는 언어 랭킹</caption>
+            <thead>
+                <tr>
+                    <th v-for="head in table.header">{{ head }}</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr v-for="row in table.ranking">
+                    <td v-for="item in row">{{ item }}</td>
+                </tr>
+            </tbody>
+        </table>
+        <hr/>
+
+        <h3>배열 데이터를 테이블로 표시하는 예제2</h3>
+        <ul v-for="item in myArray">
+            <li>{{ item }}</li>
+        </ul>
+        <button type="button" @click="addList">맨 뒤에 추가</button>
+        <button type="button" @click="addObj">네번째에 추가</button>
+        <button type="button" @click="changeObj">첫번째를 변경</button>
+        <button type="button" @click="deleteObj">두번째를 삭제</button>
+        <hr/>
+
+        <h3>버튼을 클릭하면 소트하는 예제</h3>
+        <ul v-for="num in myNumber">
+            <li>{{ num }}</li>
+        </ul>
+        <button type="button" @click="sort(myNumber)">소트</button>
+        <hr/>
+
+    </div>
+
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                myArray: ['쩀빵','멜론빵','크로와상'],
+                objArray: [
+                    {name:'쩀빵', price:1000},
+                    {name:'멜론빵', price:2000},
+                    {name:'크로와상', price:3000},
+                ],
+                table: {
+                    header: ['프로그램 언어',2018,2013,2008,2003,1998],
+                    ranking: [
+                        ['Java',1,2,1,1,16],
+                        ['C',2,1,2,2,1],
+                        ['C++',3,4,3,3,2],
+                        ['Python',4,7,6,11,23],
+                        ['JavaScript',7,10,8,7,20],
+                    ]
+                },
+                myNumber: ['one','two','three','four','five','six','seven']
+            },
+            methods: {
+                addList: function(){
+                    this.myArray.push('[맨 뒤에 추가]');
+                },
+                addObj: function(){
+                    this.myArray.splice(4, 0, '[추가]')
+                },
+                changeObj: function(){
+                    this.myArray.splice(0, 1, '[변경]')
+                },
+                deleteObj: function(){
+                    this.myArray.splice(1, 1)
+                },
+                sort: function(listData) {
+                    listData.sort(function(a,b){
+                        return (a < b ? -1 : 1);
+                    });
+                }
+            }
+        })
+    </script>
+
+</body>
+</html>

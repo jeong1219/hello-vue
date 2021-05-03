@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <title>v-on 예제</title>
+</head>
+<body>
+    <div id="app">
+        <h3>간단한 계산기</h3>
+        <input type="number" v-model="firstNum"/>
+        <input type="number" v-model="secondNum"/>
+        <br/>
+        <button type="button" @click="plusFn">더하기</button>
+        <button type="button" @click="minusFn">빼기</button>
+        <button type="button" @click="multiplyFn">곱하기</button>
+        <button type="button" @click="dividedFn">나누기</button>
+        <br/>
+        <p>결과는 {{ resultNum }}입니다.</p>
+    </div>
+
+    <script>
+        function good(){
+            alert('좋아~ 클릭');
+        }
+
+        new Vue({
+            el: '#app',
+            data: {
+                firstNum: 0,
+                secondNum : 0,
+                resultNum: 0
+            },
+            methods: {
+                plusFn: function(){
+                    this.resultNum = Number(this.firstNum) + Number(this.secondNum);
+                },
+                minusFn: function(){
+                    this.resultNum = Number(this.firstNum) - Number(this.secondNum);
+                },
+                multiplyFn: function(){
+                    this.resultNum = Number(this.firstNum) * Number(this.secondNum);
+                },
+                dividedFn: function(){
+                    this.resultNum = Number(this.firstNum) / Number(this.secondNum);
+                },
+            }
+        })
+    </script>
+
+    <style>
+        
+    </style>
+</body>
+</html>

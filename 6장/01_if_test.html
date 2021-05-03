@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Vue.js sample</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <h3>true일때만 표시하는 예제</h3>
+        <label>
+            <input type="checkbox" v-model="myVisible"/>
+            표시
+        </label>
+        <p v-if="myVisible">체크박스가 ON</p>
+        <hr/>
+
+        <h3>true와 false를 on/off로 표시하는 예제</h3>
+        <label>
+            <input type="checkbox" v-model="myVisible2"/>
+            표시
+        </label>
+        <p v-if="myVisible2">체크박스가 ON</p>
+        <p v-else="myVisible2">체크박스가 OFF</p>
+        <hr/>
+
+        <h3>클릭하면 버튼을 삭제하는 예제</h3>
+        <button type="button" v-if="isShow" @click="good">좋아</button>
+        <button type="button" v-show="isShow" @click="good">좋아</button>
+        <hr/>
+    </div>
+
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                myVisible: false,
+                myVisible2: false,
+                isShow: true
+            },
+            methods: {
+                good: function() {
+                    this.isShow = false;
+                }
+            }
+        })
+    </script>
+
+</body>
+</html>
